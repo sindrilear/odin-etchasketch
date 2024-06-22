@@ -15,7 +15,6 @@
         </div>
     </div>
     <script>
-
         const btnAdjust = document.querySelector(".adjust");
             btnAdjust.addEventListener("click", () => {
             let isTrue = true;
@@ -33,6 +32,7 @@
             const gridContainer = document.querySelector(".grid-container")
 
             gridContainer.innerHTML = '';
+            rowID = 0;
 
             for (let i = 0; i < n; i++) {
                 const gridRow = document.createElement("div");
@@ -42,10 +42,20 @@
                 for (let j = 0; j < n; j++) {
                     const grid = document.createElement("div");
                     grid.className = "grid";
+                    grid.setAttribute("id", `grid-${rowID}`)
+                    grid.setAttribute("onmouseover", `changeColor(${rowID})`)
                     element = document.getElementById(`row-${i}`);
                     element.appendChild(grid);
+                    rowID++
                 }
             }
+        }
+
+        function changeColor(n) {
+            r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+            document.getElementById(`grid-${n}`).style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
         }
     </script>
 </body>

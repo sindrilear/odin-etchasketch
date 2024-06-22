@@ -1,20 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 .container {
     display:flex;
     flex-direction:column;
     align-items:center;
+    height: 100vh;
+    padding-bottom: 12px;
 }
 .grid-container {
-    height: 800px;
-    width: 800px;
     display:flex;
     border-style:solid;
     justify-content:center;
     flex-direction:column;
+    flex-grow: 1;
+    width: 60%;
+    height: 40%;
+    box-sizing:border-box;
 }
 
 .grid {
     flex-grow: 1;
-    border-style:solid;
 }
 
 .gridrow {
@@ -23,6 +32,7 @@
 }
 
 .buttoncontainer {
+    padding-top: 12px;
     padding-bottom: 12px;
 }
 
