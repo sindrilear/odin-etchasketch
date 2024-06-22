@@ -6,18 +6,40 @@
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="createGrid(16)">
     <div class="container">
+        <div class="buttoncontainer">
+            <button type="button" class="adjust">Adjust canvas</button>
+        </div>
         <div class="grid-container">
-            <div class="gridrow">
-                <div class="grid"></div>
-                <div class="grid"></div>
-            </div>
-            <div class="gridrow">
-                <div class="grid"></div>
-                <div class="grid"></div>
-            </div>
         </div>
     </div>
+    <script>
+
+        const btnAdjust = document.querySelector(".adjust");
+            btnAdjust.addEventListener("click", () => {
+                let grid = prompt("Please enter a number");
+                createGrid(grid);
+            });
+        
+        function createGrid(n) {
+            const gridContainer = document.querySelector(".grid-container")
+
+            gridContainer.innerHTML = '';
+
+            for (let i = 0; i < n; i++) {
+                const gridRow = document.createElement("div");
+                gridRow.className = "gridrow";
+                gridRow.setAttribute("id", `row-${i}`)
+                gridContainer.appendChild(gridRow);
+                for (let j = 0; j < n; j++) {
+                    const grid = document.createElement("div");
+                    grid.className = "grid";
+                    element = document.getElementById(`row-${i}`);
+                    element.appendChild(grid);
+                }
+            }
+        }
+    </script>
 </body>
 </html>
