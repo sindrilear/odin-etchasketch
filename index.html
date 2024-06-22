@@ -18,9 +18,16 @@
 
         const btnAdjust = document.querySelector(".adjust");
             btnAdjust.addEventListener("click", () => {
-                let grid = prompt("Please enter a number");
-                createGrid(grid);
-            });
+            let isTrue = true;
+            let grid;
+            while(isTrue){
+                grid = prompt("Please enter a number between 1-100");
+                if (grid >= 1 && grid <= 100) {
+                    isTrue = false;
+                }
+            }
+            createGrid(grid);
+        });
         
         function createGrid(n) {
             const gridContainer = document.querySelector(".grid-container")
